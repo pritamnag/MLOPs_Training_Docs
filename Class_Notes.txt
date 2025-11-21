@@ -788,5 +788,98 @@ Next :
 		To work with Local Repositories using Branches
 		
 			
+
 		
+	
+#####################
+Day 4: 21st Nov. 2025 - Friday - 1Hr.
+#####################
+
+	
+	AWS Cloud : https://aws.amazon.com/console/
+	
+		- Create EC2 Instances to Work with MLOps Tools 
+		
+		- Ubuntu :
+		
+		
+		
+		1 VM = 750 Hrs/Month 
+
+
+		10 VMs = 75 Hrs/Month 
+
+
+		- Connect to EC2 Instance ?
+		
+			- SSH Connection:
+			
+				- Host_Name 
+				
+				- User_Name 
+				
+				- Credential for Authentication
+				
+					Modes of SSH Authentication:
+
+						- Key Based Authentication
+						
+							-> Public Key 
+							-> Authorized_Key
+							-> Private Key
+						
+						
+						- Password Based Authentication
+						
+						- Token Based Authentication
+						
+						- Passwordless Authentication
+						
+						
+				- Connection Options:
+				
+					- EC2 Instance Connect Option 
+					
+					- SSH Agent : - For Windows users:	
+					
+						- putty
+
+						- MobaXterm 
+						
+							- Install MobaXterm
+								https://mobaxterm.mobatek.net/download.html
+								
+								https://mobaxterm.mobatek.net/download-home-edition.html - Choose Installer Edition.
+						
+					- Terminal
+						
+					
+	sudo -i
+	
+	apt update -y
+	
+	apt install git -y
+
+
+	- Create GitHub Account :
+	
+	https://github.com/
+	
+		Fork the training repository.
+		
+		
+
+
+Next:
+
+	Git Undo Changes  
+	
+	Git Branches 
+	
+	Git Branching Strategies 
+	
+		- Merge Conflicts 
+		- Rebase / Squash
+		
+	Remote Repos 
 			
