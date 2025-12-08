@@ -2321,3 +2321,180 @@ Day 8: 5th Dec. 2025
 		docker pull ubuntu 
 
 		docker run -it ubuntu bash
+
+
+
+
+#####################
+Day 9: 8th Dec. 2025
+#####################
+
+Package ML Model using Docker :::
+
+
+	ML Model : V1.0 ==> python
+	
+	Dev 	ML Model : V1.0 ==> python		==> Package the Model Along with its dependencies & Publish to Container Registry 
+	
+	Test 	ML Model : V1.0 ==> python		==> Container can be deployed in the Test Environment
+	
+	Prod 									==> Container can be deployed in the Prod Environment
+	
+
+	DVC 
+	
+	MLflow 
+	
+	Gitlab Ci 
+
+	AWS S3 Buckets to maintain the DVC dataset versions 
+	AWS IAM User Access 
+	
+	MLflow
+	
+		=> End-End MLOps Project 
+	
+	AWS Sagemaker
+	
+		=> End-End Project 
+	
+
+
+	Docker Cli Command to Work with Container & Container Images :::
+	
+		- Working with Containers using existing Images 
+		
+		- Create Images 
+	
+		
+
+	Docker Cli Commands :
+	
+		- docker pull <image_name>			# To Download an Image from Container Registry 
+		
+		- docker run <image_name>			# To Create and Execute the Container
+
+		Modes of Execution :::
+		
+			1. Foreground Mode / Attached mode :
+			
+					docker run ubuntu sleep 20
+			
+			
+			2. Background Mode / Detached Mode :
+			
+					docker run -d ubuntu sleep 20
+					
+			
+			3. Interactive Mode :
+	
+					docker run -it ubuntu bash	
+
+
+	- Containers are used to run a task 
+
+		
+		- docker rm <container_id> <container_id>
+		
+		- docker rmi <image_id>
+	
+
+	- docker start <container_id>
+	
+	- docker stop <container_id>
+		
+	- docker exec -it <Container_id> bash
+	
+		- docker exec -it e784b86816d5 bash				# To Login to Running Container
+		
+		
+		
+		
+	- Port Mapping :::
+		
+			- TO expose the Container to Internet 
+			- It helps to access the Container Application using the Dedicated Port Number 
+	
+		Web Application server :::
+		
+			Tomcat/Nginx 
+		
+		Eg.: 
+		
+			docker run -it -p 8085:8080 tomcat 					# Execute the Container with port mapping.
+			
+			-p <host_port>:<Container Port>
+	
+
+
+- Create Images :::
+
+	- Infra-Structure Perspective ::
+	
+			ML Model - V1.0 
+			
+				Test - Test Server - 
+				
+				Create a Server Template - AMI 
+				
+				Docker Image Create Docker Containers 
+				
+		- Docker Commit :::
+		
+				docker commit 	: Is used to create a Container based on the existing Container reference.
+				
+				Purpose of Package ==> Protability 
+				
+				
+				
+		- Publish the Image to Docker Container Registry :
+		
+			docker login :::
+			
+				docker login -u loksaieta
+			
+			Password 			# Enter the Personal Access Token created in DockerHub. 
+			
+				dsssfsdfM
+				
+	
+	- ML Model Deployment Perspective ::	
+
+		- Docker Build :::
+		
+			- Is used to create a Container based on the Dockerfile reference.
+			- Reduce the Compatibility Issues during deployment and testing 
+			- Dockerfile composed of Instructions to Create Docker Container Images
+			- Application Developers create the Dockerfile and update in the Source Code Repository. 
+			
+			
+		vi Dockerfile 
+		
+			FROM ubuntu 
+			RUN apt update -y
+			RUN apt install git -y
+			RUN apt install nginx -y
+			EXPOSE 8090
+			
+				
+		docker build -t loksaieta/mymlProj:v1.1 .
+		
+		Write Dockerfile :::
+		
+			Docker File Instructions :::
+			
+			FROM 									# To Identify the Base Image
+			RUN 									# To run the package manager
+			COPY 									# To Copy the file from host volume to container volume
+			CP 										# To Copy the file within the container volumes 
+			ADD 									# To Copy the file from Host Volume as well as from URL
+			ENV 									# To define the Environment Variable 
+			ARG 									# To pass Arguements to the Steps in Dockerfile 
+			EXPOSE									# To Define the Container Port 
+			WORKDIR									# To set the current working directory within the Container 
+			CMD										# To set the default start-up command to the container 
+													  This Command can be changed at run-time.
+			ENTRYPOINT								# To set the default start-up command to the container 
+													  This Command cannot be changed at run-time.			
+		
+	
